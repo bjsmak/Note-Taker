@@ -1,6 +1,5 @@
 //Path and Express require
 const express = require("express");
-//Database file
 
 
 
