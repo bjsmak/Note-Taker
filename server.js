@@ -7,7 +7,7 @@ const express = require("express");
 
 //Set up express
 var app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 //Data parsing for the JSON data and HTML data
