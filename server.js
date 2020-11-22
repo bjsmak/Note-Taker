@@ -1,7 +1,7 @@
 //Path and Express require
 const express = require("express");
 //Database file
-const notes = require("./db/db.json");
+
 
 
 
@@ -13,17 +13,16 @@ const PORT = 3000;
 //Data parsing for the JSON data and HTML data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
+app.use(express.static("public"))
 
+
+
+require("./routes/apiroutes.js")(app)
 //Separate JS file for the routes
-//require("./routes/routes.js")
+require("./routes/routes.js")(app)
 
-app.get('*', function(req, res){
-    res.sendFile(path.join(__dirname, "./public/index.html"));
-})
 
-app.get('/notes', function(req, res){
-    res.sendFile(path.join(__dirname, "./public/notes.html"));
-})
+
 
 //Port listening
 app.listen(PORT, () => {
